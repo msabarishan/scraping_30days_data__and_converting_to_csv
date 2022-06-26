@@ -68,6 +68,16 @@ st.download_button(
       "text/csv",
       key='download-csv'
       )
+# CSS to inject contained in a string
+hide_table_row_index = """
+            <style>
+            tbody th {display:none}
+            .blank {display:none}
+            </style>
+            """
+
+# Inject CSS with Markdown
+st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.table(df2)
 hist = alt.Chart(df2).mark_line().encode(x = 'Date',
                                              y = 'Volume')

@@ -69,7 +69,7 @@ st.download_button(
       key='download-csv'
       )
 st.table(df2)
-hist = alt.Chart(df2).mark_bar().encode(x = 'Date',
+hist = alt.Chart(df2).mark_bar().encode(x = 'index',
                                              y = 'Volume',title= 'No of Materials')
 st.subheader('Machine Distribution')
 st.altair_chart(hist,use_container_width=True)

@@ -59,7 +59,9 @@ df2 = df2[1:]
 def convert_df(df2):
      return df2.to_csv().encode('utf-8')
 csv = convert_df(df2)
-
+st.write("""
+# MRF Last 30 days Stock Analysis
+""")
 st.subheader('Download last 30 day file')
 st.download_button(
       "Press to Download",
@@ -81,5 +83,5 @@ st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.table(df2)
 hist = alt.Chart(df2).mark_line().encode(x = 'Date',
                                              y = 'Volume')
-st.subheader('Machine Distribution')
+st.subheader('Trend Analysis')
 st.altair_chart(hist,use_container_width=True)

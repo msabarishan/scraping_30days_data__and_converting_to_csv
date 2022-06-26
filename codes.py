@@ -1,0 +1,55 @@
+from bs4 import BeautifulSoup
+import requests
+import pandas as pd
+from datetime import date, datetime, timedelta
+import altair as alt
+# Website from which data scraping need to be done.
+url="https://www.moneycontrol.com/stocks/hist_stock_result.php?ex=B&sc_id=MRF&mycomp=MRF"
+
+today = datetime.now() 
+last_date= today-timedelta(31)
+last_day = int(last_date.strftime("%d"))
+last_month = int(last_date.strftime("%m"))
+last_year = int(last_date.strftime("%Y"))
+today_day = int(today.strftime("%d"))
+today_month = int(today.strftime("%m"))
+today_year = int(today.strftime("%Y"))
+today_file = int(today.strftime("%d_%m_%Y"))
+
+
+datas={}
+datas["frm_dy"] = last_date
+datas["frm_mth"] = last_month
+datas["frm_yr"] = last_year
+datas["to_dy"] = today_day
+datas["to_mth"] = today_month
+datas["to_yr"] = today_year
+datas["hdn"] = "daily"
+send_date=requests.post(url,data=datas)
+soup=BeautifulSoup(send_date.text,"html.parser")
+table = soup.find('table', attrs={'class': 'tblchart'})
+list1=[ ]
+dic={ }
+str1 = ""
+for j in table.find_all('th'):
+    str1= j.text
+    list1.append(str1)
+dic['items']=list1
+k=0
+list2=[ ]
+for i in table.find_all('tr'):
+    str2=''
+    for j in i.find_all('td'):
+        str2= j.text
+        list2.append(str2)
+    dic[f"items{k}"]=list2
+    k+=1
+    str2=''
+    list2=[ ]
+df=pd.DataFrame(dict([ (k,pd.Series(v)) for k,v in dic.items() ]))
+df2=df.drop('items0', inplace=True, axis=1)
+df2=df.drop('items1', inplace=True, axis=1)
+df2=df.transpose()   
+df2.drop(7,inplace=True,axis=1)
+df2.drop(8,inplace=True,axis=1)
+df2.to_csv(f"scrap_{today_file}.csv",index=False,header=False)

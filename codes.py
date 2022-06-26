@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 from datetime import date, datetime, timedelta
 import altair as alt
+import streamlit as st
 # Website from which data scraping need to be done.
 url="https://www.moneycontrol.com/stocks/hist_stock_result.php?ex=B&sc_id=MRF&mycomp=MRF"
 

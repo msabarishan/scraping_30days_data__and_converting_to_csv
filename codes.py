@@ -4,7 +4,6 @@ import pandas as pd
 from datetime import date, datetime, timedelta
 import altair as alt
 import streamlit as st
-# Website from which data scraping need to be done.
 url="https://www.moneycontrol.com/stocks/hist_stock_result.php?ex=B&sc_id=MRF&mycomp=MRF"
 
 today = datetime.now() 
@@ -19,7 +18,7 @@ today_file = int(today.strftime("%d_%m_%Y"))
 
 
 datas={}
-datas["frm_dy"] = last_date
+datas["frm_dy"] = last_day
 datas["frm_mth"] = last_month
 datas["frm_yr"] = last_year
 datas["to_dy"] = today_day
@@ -53,7 +52,10 @@ df2=df.drop('items1', inplace=True, axis=1)
 df2=df.transpose()   
 df2.drop(7,inplace=True,axis=1)
 df2.drop(8,inplace=True,axis=1)
-df2.to_csv(f"scrap_{today_file}.csv",index=False,header=False)
+df2.columns = df2.iloc[0] 
+df2 = df2[1:]
+df2.set_index("Date", inplace=True)
+#df2.to_csv(f"scrape_{today_file}.csv",index=True,header=True)
 def convert_df(df2):
      return df2.to_csv().encode('utf-8')
 csv = convert_df(df2)

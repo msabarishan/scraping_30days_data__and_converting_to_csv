@@ -54,7 +54,7 @@ df2.drop(7,inplace=True,axis=1)
 df2.drop(8,inplace=True,axis=1)
 df2.columns = df2.iloc[0] 
 df2 = df2[1:]
-df2.set_index("Date", inplace=True)
+#df2.set_index("Date", inplace=True)
 #df2.to_csv(f"scrape_{today_file}.csv",index=True,header=True)
 def convert_df(df2):
      return df2.to_csv().encode('utf-8')
@@ -69,7 +69,7 @@ st.download_button(
       key='download-csv'
       )
 st.table(df2)
-hist = alt.Chart(df2).mark_bar().encode(x = 'index',
-                                             y = 'Volume',title= 'No of Materials')
+hist = alt.Chart(df2).mark_bar().encode(x = 'Date',
+                                             y = 'Volume')
 st.subheader('Machine Distribution')
 st.altair_chart(hist,use_container_width=True)

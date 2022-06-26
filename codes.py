@@ -53,3 +53,15 @@ df2=df.transpose()
 df2.drop(7,inplace=True,axis=1)
 df2.drop(8,inplace=True,axis=1)
 df2.to_csv(f"scrap_{today_file}.csv",index=False,header=False)
+def convert_df(df2):
+     return df2.to_csv().encode('utf-8')
+csv = convert_df(df2)
+
+st.subheader('Download last 30 day file')
+st.download_button(
+      "Press to Download",
+      csv,
+      "file.csv",
+      "text/csv",
+      key='download-csv'
+      )

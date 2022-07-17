@@ -95,6 +95,7 @@ hide_table_row_index = """
             """
 
 # Inject CSS with Markdown
+df2=df2.astype({"Volume": int, "High": int})
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.table(df2)
 #hist = alt.Chart(df2).mark_line().encode(x = 'Date',y=alt.Y('Volume', sort='y'))
@@ -103,7 +104,6 @@ plt.plot(df2.Date, df2.Volume)
 plt.xlabel("Date")  # add X-axis label
 plt.ylabel("Volume")  # add Y-axis label
 plt.xticks(rotation = 90)
-plt.ylim((100,10000))
 plt.title("Stock Volume")  # add title
 st.subheader('Trend Analysis: Stock Volume')
 st.pyplot(fig)

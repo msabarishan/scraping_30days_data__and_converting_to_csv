@@ -4,7 +4,14 @@ import pandas as pd
 from datetime import date, datetime, timedelta
 import altair as alt
 import streamlit as st
-url="https://www.moneycontrol.com/stocks/hist_stock_result.php?ex=B&sc_id=MRF&mycomp=MRF"
+
+st.write("""
+# Stock Analysis
+""")
+option = st.selectbox('Select the Firm?',('MRF','Eicher','Tata Motors','Tata Consultancy Services','Adani Power'))
+st.write('You selected:', option)
+
+url=f"https://www.moneycontrol.com/stocks/hist_stock_result.php?ex=B&sc_id={option}&mycomp={option}"
 
 today = datetime.now() 
 last_date= today-timedelta(31)
@@ -59,8 +66,8 @@ df2 = df2[1:]
 def convert_df(df2):
      return df2.to_csv().encode('utf-8')
 csv = convert_df(df2)
-st.write("""
-# MRF Last 30 days Stock Analysis
+st.write(f"""
+# {option} Last 30 days Stock Analysis
 """)
 st.subheader('Download last 30 day file')
 st.download_button(

@@ -8,7 +8,7 @@ import streamlit as st
 st.write("""
 # Stock Analysis
 """)
-option = st.selectbox('Select the Firm?',('MRF','Eicher','Tata Motors','Tata Consultancy Services','Adani Power'))
+option = st.selectbox('Select the Firm?',('MRF','Eicher','Tata Motors','Tata Consultancy Services','Adani Power','Bharat Petroleum Corporation'))
 st.write('You selected:', option)
 
 url=f"https://www.moneycontrol.com/stocks/hist_stock_result.php?ex=B&sc_id={option}&mycomp={option}"

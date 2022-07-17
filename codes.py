@@ -12,8 +12,9 @@ st.write("""
 ids = st.text_input('Enter the ID', 'MRF')
 
 st.write('You selected:', ids)
+new = pd.DataFrame.from_dict(lists.Dict)
 if st.button('Click here to select the option'):
-   st.write(lists.Dict)
+   st.table(new)
 
 
 
@@ -73,7 +74,7 @@ def convert_df(df2):
      return df2.to_csv().encode('utf-8')
 csv = convert_df(df2)
 st.write(f"""
-# {list.Dict[ids]} Last 30 days Stock Analysis
+# {lists.Dict[ids]} Last 30 days Stock Analysis
 """)
 st.subheader('Download last 30 day file')
 st.download_button(

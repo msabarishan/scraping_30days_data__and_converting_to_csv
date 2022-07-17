@@ -111,7 +111,7 @@ st.pyplot(fig)
 #st.altair_chart(hist,use_container_width=True)
 
 fig1 = plt.figure(figsize = (10, 5))
-plt.plot(df2.Date, df2.High)
+plt.plot_date(df2.Date, df2.High)
 plt.xlabel("Date")  # add X-axis label
 plt.ylabel("Highest Price")  # add Y-axis label
 plt.xticks(rotation = 90)

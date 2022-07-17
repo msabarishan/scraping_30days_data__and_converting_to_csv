@@ -95,7 +95,7 @@ hide_table_row_index = """
             """
 
 # Inject CSS with Markdown
-#df2['Volume'] = df2['Volume'].astype('int')
+df2['Volume'] = df2['Volume'].astype('int')
 #df2['High'] = df2['High'].astype('int')
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.table(df2)

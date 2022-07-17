@@ -110,8 +110,14 @@ st.subheader('Trend Analysis: Stock Volume')
 st.pyplot(fig)
 #st.altair_chart(hist,use_container_width=True)
 
-hist1 = alt.Chart(df2).mark_line().encode(x = 'Date',
-                                             y = 'High')
+fig1 = plt.figure(figsize = (10, 5))
+plt.plot(df2.Date, df2.High)
+plt.xlabel("Date")  # add X-axis label
+plt.ylabel("Highest Price")  # add Y-axis label
+plt.xticks(rotation = 90)
+plt.title("Stock Volume")  # add title
+st.subheader('Trend Analysis: Stock Volume')
+
 st.subheader('Trend Analysis: Stock Highest Price')
-st.altair_chart(hist1,use_container_width=True)
+st.pyplot(fig1)
 

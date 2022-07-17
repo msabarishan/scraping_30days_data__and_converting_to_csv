@@ -95,6 +95,7 @@ hide_table_row_index = """
             """
 df2 = df2.iloc[::-1]
 # Inject CSS with Markdown
+df2.fillna(0)
 df2['Volume'] = df2['Volume'].astype('int')
 df2['High'] = df2['High'].astype('float')
 st.markdown(hide_table_row_index, unsafe_allow_html=True)

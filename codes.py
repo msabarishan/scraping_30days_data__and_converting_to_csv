@@ -98,13 +98,14 @@ hide_table_row_index = """
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.table(df2)
 #hist = alt.Chart(df2).mark_line().encode(x = 'Date',y=alt.Y('Volume', sort='y'))
+fig = plt.figure(figsize = (10, 5))
 plt.plot(df2.Date, df2.Volume)
 plt.xlabel("Date")  # add X-axis label
 plt.ylabel("Volume")  # add Y-axis label
 plt.title("Stock Volume")  # add title
-hist=plt.show()
 st.subheader('Trend Analysis: Stock Volume')
-st.altair_chart(hist,use_container_width=True)
+st.pyplot(fig)
+#st.altair_chart(hist,use_container_width=True)
 
 hist1 = alt.Chart(df2).mark_line().encode(x = 'Date',
                                              y = 'High')

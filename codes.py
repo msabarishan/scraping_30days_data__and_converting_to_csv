@@ -73,7 +73,7 @@ def convert_df(df2):
      return df2.to_csv().encode('utf-8')
 csv = convert_df(df2)
 st.write(f"""
-# {option} Last 30 days Stock Analysis
+# {list.Dict[ids]} Last 30 days Stock Analysis
 """)
 st.subheader('Download last 30 day file')
 st.download_button(

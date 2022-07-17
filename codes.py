@@ -9,7 +9,8 @@ import lists
 st.write("""
 # Stock Analysis
 """)
-ids=st.text_input()
+ids = st.text_input('Movie title', 'Life of Brian')
+
 st.write('You selected:', ids)
 if st.button('Click here to select the option'):
    st.write(lists.Dict)

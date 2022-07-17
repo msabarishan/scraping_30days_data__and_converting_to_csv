@@ -103,6 +103,7 @@ plt.plot(df2.Date, df2.Volume)
 plt.xlabel("Date")  # add X-axis label
 plt.ylabel("Volume")  # add Y-axis label
 plt.xticks(rotation = 90)
+plt.ylim((100,10000))
 plt.title("Stock Volume")  # add title
 st.subheader('Trend Analysis: Stock Volume')
 st.pyplot(fig)

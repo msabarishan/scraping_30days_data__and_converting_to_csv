@@ -115,8 +115,7 @@ plt.plot(df2.Date, df2.High)
 plt.xlabel("Date")  # add X-axis label
 plt.ylabel("Highest Price")  # add Y-axis label
 plt.xticks(rotation = 90)
-plt.title("Stock Volume")  # add title
-st.subheader('Trend Analysis: Stock Volume')
+plt.title("Stock Highest Price")  # add title
 
 st.subheader('Trend Analysis: Stock Highest Price')
 st.pyplot(fig1)

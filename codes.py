@@ -12,7 +12,7 @@ st.write("""
 ids = st.text_input('Enter the ID', 'MRF')
 
 st.write('You selected:', ids)
-new = pd.DataFrame.from_dict(lists.Dict)
+new = pd.DataFrame.from_dict(lists.Dict,orient ='index')
 if st.button('Click here to select the option'):
    st.table(new)
 

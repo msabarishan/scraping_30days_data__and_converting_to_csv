@@ -11,7 +11,9 @@ st.write("""
 option = st.selectbox('Select the Firm?',('MRF','Eicher','Tata Motors','Tata Consultancy Services','Adani Power','Bharat Petroleum Corporation'))
 st.write('You selected:', option)
 
-url=f"https://www.moneycontrol.com/stocks/hist_stock_result.php?ex=B&sc_id={option}&mycomp={option}"
+url="https://www.moneycontrol.com/stocks/hist_stock_result.php?ex=B&sc_id=" +option+"&mycomp="+option
+
+#url = "https://www.moneycontrol.com/stocks/hist_stock_result.php?ex=B&sc_id=" +ids+"&mycomp="+lists.Dict[ids]
 
 today = datetime.now() 
 last_date= today-timedelta(31)

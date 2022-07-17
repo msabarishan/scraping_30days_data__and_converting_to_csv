@@ -95,7 +95,8 @@ hide_table_row_index = """
             """
 
 # Inject CSS with Markdown
-df2=df2.astype({"Volume": int, "High": int})
+df2['Volume'] = df2['Volume'].astype('int')
+df2['High'] = df2['High'].astype('int')
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.table(df2)
 #hist = alt.Chart(df2).mark_line().encode(x = 'Date',y=alt.Y('Volume', sort='y'))

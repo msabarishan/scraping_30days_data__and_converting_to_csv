@@ -96,7 +96,7 @@ hide_table_row_index = """
 
 # Inject CSS with Markdown
 df2['Volume'] = df2['Volume'].astype('int')
-#df2['High'] = df2['High'].astype('int')
+df2['High'] = df2['High'].astype('float')
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.table(df2)
 #hist = alt.Chart(df2).mark_line().encode(x = 'Date',y=alt.Y('Volume', sort='y'))
@@ -111,7 +111,7 @@ st.pyplot(fig)
 #st.altair_chart(hist,use_container_width=True)
 
 fig1 = plt.figure(figsize = (10, 5))
-plt.plot_date(df2.Date, df2.High)
+plt.plot(df2.Date, df2.High)
 plt.xlabel("Date")  # add X-axis label
 plt.ylabel("Highest Price")  # add Y-axis label
 plt.xticks(rotation = 90)

@@ -97,7 +97,7 @@ hide_table_row_index = """
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.table(df2)
 hist = alt.Chart(df2).mark_line().encode(x = 'Date',
-                                             y = 'Volume')
+                                         y=alt.Y('Volume', sort='y'))
 st.subheader('Trend Analysis: Stock Volume')
 st.altair_chart(hist,use_container_width=True)
 

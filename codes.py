@@ -4,16 +4,19 @@ import pandas as pd
 from datetime import date, datetime, timedelta
 import altair as alt
 import streamlit as st
+import lists
 
 st.write("""
 # Stock Analysis
 """)
-option = st.selectbox('Select the Firm?',('MRF','Eicher','Tata Motors','Tata Consultancy Services','Adani Power','Bharat Petroleum Corporation'))
-st.write('You selected:', option)
+ids=st.text_input()
+st.write('You selected:', ids)
+if st.button('Click here to select the option'):
+   st.write(lists.Dict)
 
-url="https://www.moneycontrol.com/stocks/hist_stock_result.php?ex=B&sc_id=" +option+"&mycomp="+option
 
-#url = "https://www.moneycontrol.com/stocks/hist_stock_result.php?ex=B&sc_id=" +ids+"&mycomp="+lists.Dict[ids]
+
+url = "https://www.moneycontrol.com/stocks/hist_stock_result.php?ex=B&sc_id=" +ids+"&mycomp="+lists.Dict[ids]
 
 today = datetime.now() 
 last_date= today-timedelta(31)

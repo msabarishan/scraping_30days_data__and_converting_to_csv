@@ -93,7 +93,7 @@ hide_table_row_index = """
             .blank {display:none}
             </style>
             """
-
+df2 = df2.iloc[::-1]
 # Inject CSS with Markdown
 df2['Volume'] = df2['Volume'].astype('int')
 df2['High'] = df2['High'].astype('float')
@@ -104,7 +104,6 @@ fig = plt.figure(figsize = (10, 5))
 plt.plot(df2.Date, df2.Volume)
 plt.xlabel("Date")  # add X-axis label
 plt.ylabel("Volume")  # add Y-axis label
-fig.invert_xaxis()
 plt.xticks(rotation = 90)
 plt.title("Stock Volume")  # add title
 st.subheader('Trend Analysis: Stock Volume')
@@ -116,7 +115,6 @@ plt.plot(df2.Date, df2.High)
 plt.xlabel("Date")  # add X-axis label
 plt.ylabel("Highest Price")  # add Y-axis label
 plt.xticks(rotation = 90)
-fig1.invert_xaxis()
 plt.title("Stock Volume")  # add title
 st.subheader('Trend Analysis: Stock Volume')
 

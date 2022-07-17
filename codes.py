@@ -12,7 +12,7 @@ st.write("""
 ids = st.text_input('Enter the ID', 'MRF')
 
 st.write('You selected:', ids)
-new = pd.DataFrame.from_dict(lists.Dict,orient='index',columns=['ID','Firm'])
+new = pd.DataFrame.from_dict(lists.Dict,orient='index',columns=['ID-Firm'])
 agree = st.checkbox('Click here to see the available ID')
 if agree:
    st.dataframe(new)
